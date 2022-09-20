@@ -1,31 +1,53 @@
+import axios from "axios";
 import { useRouter } from "next/router";
+import { setCookie } from "nookies";
 import { useState } from "react";
 
-export default function SignIn() {
-    type loginElement = {
+export default function SignInCheck() {
+    type signInElement = {
         mailAddress: string;
         password: string;
     };
-    type errorSignInElement = {
+    type errorSignInCheckElement = {
         mailAddress: boolean;
         password: boolean;
     };
+    type successSignIn = {
+        successStatus: boolean;
+        errorText: string;
+    };
+    const url = "";
     const router = useRouter();
-    const [formData, setFormData] = useState<loginElement>({
+    const [formData, setFormData] = useState<signInElement>({
         mailAddress: "",
         password: "",
     });
-    const [errorFormData, setErrorFormData] = useState<errorSignInElement>({
-        mailAddress: false,
-        password: false,
-    });
+    const [errorSignInForm, setErrorSignInForm] =
+        useState<errorSignInCheckElement>();
+    const [successSignInStatus, setSuccessSignIn] = useState<successSignIn>();
+    const [errorFormData, setErrorFormData] = useState<errorSignInCheckElement>(
+        {
+            mailAddress: false,
+            password: false,
+        }
+    );
     const handleChange = (event) => {
         event.preventDefault();
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
     };
+    const handleSignInError = () => {
+        let formError = Object.assign({}, errorFormData);
 
-    const signIn = (event) => {
+        if (successSignInStatus.errorText == "user is not exist") {
+            formError.mailAddress = true;
+        }
+        if (successSignInStatus.errorText == "password is incorrect") {
+            formError.password = true;
+        }
+        setErrorSignInForm(formError);
+    };
+    const signInCheck = (event) => {
         event.preventDefault();
         let mailAddressPattern =
             /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/;
@@ -39,18 +61,49 @@ export default function SignIn() {
             formError.password = true;
         }
         if (!formError.mailAddress && !formError.password) {
-            router.push("/makeDiary");
+            signIn();
+            if (successSignInStatus) {
+                router.push("/makeDiary");
+            }
         }
         setErrorFormData(formError);
+    };
+    const signIn = () => {
+        axios
+            .post(url + "/login", {
+                email: formData.mailAddress,
+                password: formData.password,
+            })
+            .then((res) => {
+                console.log(res.data);
+                setCookie(null, "accessToken", res.data.cookies);
+                setSuccessSignIn({
+                    successStatus: true,
+                    errorText: "success!",
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+                setSuccessSignIn({
+                    successStatus: false,
+                    errorText: error,
+                });
+                handleSignInError();
+            });
     };
     return (
         <div>
             <div className="border-2 rounded m-4 mt-12">
-                <form onSubmit={signIn}>
+                <form onSubmit={signInCheck}>
                     <div className="flex flex-col">
                         {errorFormData.mailAddress && (
                             <div className="mx-4 text-xs text-red-500">
                                 無効なメールアドレスです
+                            </div>
+                        )}
+                        {errorSignInForm.mailAddress && (
+                            <div className="mx-4 text-xs text-red-500">
+                                ユーザーが存在しません
                             </div>
                         )}
                         <input
@@ -62,6 +115,11 @@ export default function SignIn() {
                         {errorFormData.password && (
                             <div className="mx-4 text-xs text-red-500">
                                 パスワードは半角英小文字大文字数字をそれぞれ1種類以上含む8文字以上100文字以下で入力してください
+                            </div>
+                        )}
+                        {errorSignInForm.password && (
+                            <div className="mx-4 text-xs text-red-500">
+                                パスワードが一致しません
                             </div>
                         )}
                         <input

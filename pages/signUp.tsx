@@ -1,13 +1,17 @@
+import axios from "axios";
 import { useRouter } from "next/router";
+import { setCookie } from "nookies";
 import { useState } from "react";
+
 const initialErrorState = {
     username: false,
     mailAddress: false,
     password: false,
     confirmPassword: false,
 };
-export default function SignUp() {
+export default function SignUpCheck() {
     const router = useRouter();
+    const url = "";
     type signUpElement = {
         username: string;
         mailAddress: string;
@@ -19,6 +23,10 @@ export default function SignUp() {
         mailAddress: boolean;
         password: boolean;
         confirmPassword: boolean;
+    };
+    type successSignUp = {
+        successStatus: boolean;
+        errorText: string;
     };
     const [formData, setFormData] = useState<signUpElement>({
         username: "",
@@ -35,8 +43,46 @@ export default function SignUp() {
         setFormData({ ...formData, [name]: value });
         console.log(formData);
     };
+    const [errorSignUpForm, setErrorSignUpForm] =
+        useState<errorSignUpElement>();
+    const handleSignUpError = () => {
+        let formError = Object.assign({}, initialErrorState);
 
-    const signUp = (event) => {
+        if (successSignUpStatus.errorText == "user is not exist") {
+            formError.mailAddress = true;
+        }
+        if (successSignUpStatus.errorText == "password is incorrect") {
+            formError.password = true;
+        }
+        if (!formError.mailAddress && formError.password) {
+        }
+        setErrorSignUpForm(formError);
+    };
+    const [successSignUpStatus, setSuccessSignUp] = useState<successSignUp>();
+    const signUp = () => {
+        axios
+            .post(url + "/login", {
+                email: formData.mailAddress,
+                password: formData.password,
+            })
+            .then((res) => {
+                console.log(res.data);
+                setCookie(null, "accessToken", res.data.cookies);
+                setSuccessSignUp({
+                    successStatus: true,
+                    errorText: "success!",
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+                setSuccessSignUp({
+                    successStatus: false,
+                    errorText: error,
+                });
+                handleSignUpError();
+            });
+    };
+    const signUpCheck = (event) => {
         event.preventDefault();
         console.log(initialErrorState);
 
@@ -63,6 +109,7 @@ export default function SignUp() {
             !formError.password &&
             !formError.mailAddress
         ) {
+            signUp();
             router.push("/makeDiary");
         }
         setFormErrors(formError);
@@ -70,7 +117,7 @@ export default function SignUp() {
     return (
         <div>
             <div className="border-2 rounded m-4 mt-12">
-                <form onSubmit={signUp}>
+                <form onSubmit={signUpCheck}>
                     <div className="flex flex-col">
                         {formErrors.username && (
                             <div className="text-xs text-red-500">
@@ -87,6 +134,11 @@ export default function SignUp() {
                         {formErrors.mailAddress && (
                             <div className="text-xs text-red-500">
                                 無効なメールアドレスです
+                            </div>
+                        )}
+                        {errorSignUpForm.mailAddress && (
+                            <div className="text-xs text-red-500">
+                                使用済みのメールアドレスです
                             </div>
                         )}
                         <input

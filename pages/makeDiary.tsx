@@ -1,12 +1,21 @@
+import axios from "axios";
 import Image from "next/image";
+import { parseCookies } from "nookies";
+
 import { KeyboardEvent, useState } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/header";
 
 export default function MakeDiary() {
+    const url = "";
+    const date = new Date();
+    const username = "";
+    const diaryTitle = "";
     const [diaryText, setDiaryText] = useState("");
     const [textLength, setTextLength] = useState<number>(0);
     // const box = useRef(0);
+    const cookies = parseCookies();
+    const today = date.getFullYear + "/" + date.getMonth + "/" + date.getDate();
 
     const textMaxLength = 100;
     // const test = () => {
@@ -39,8 +48,20 @@ export default function MakeDiary() {
         if (diaryText === "") {
             return;
         }
-        console.log(diaryText);
-        setDiaryText("");
+        axios
+            .post(url + "", {
+                accessToken: cookies.accessToken,
+                diaryAuthor: username,
+                diaryTitle: diaryTitle,
+                diaryText: diaryText,
+                writtenDate: today,
+            })
+            .then((res) => {
+                console.log(res.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
     const handleKeyDown = (event: KeyboardEvent) => {
         if (event.ctrlKey && event.key === "Enter") {
