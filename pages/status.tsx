@@ -1,5 +1,3 @@
-import { workerData } from "worker_threads";
-
 export default function Status() {
     const user = {
         name: "test",
@@ -13,8 +11,8 @@ export default function Status() {
         <div className="bg-slate-800">
             <div className="flex flex-col min-h-screen">
                 <div className="flex-grow">
-                    <div className=" ">
-                        <div className="text-2xl text-amber-50 underline decoration-red-300 w-80 mx-auto">
+                    <div className=" text-center">
+                        <div className=" text-amber-50 underline decoration-red-300 mx-auto  sm:duration-700 md:duration-700 lg:duration-700 xl:duration-700 xl:w-2/5 lg:w-96  md:w-80 sm:w-64 w-52  xl:text-3xl lg:text-2xl md:text-xl sm:text-lg">
                             <div className="flex flex-row p-4">
                                 <div className="basis-3/5">ユーザー名</div>
                                 <div className="basis-2/5">{user.name}</div>
