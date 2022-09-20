@@ -63,7 +63,7 @@ export default function SignUp() {
             !formError.password &&
             !formError.mailAddress
         ) {
-            router.push("/inputDiary");
+            router.push("/makeDiary");
         }
         setFormErrors(formError);
     };

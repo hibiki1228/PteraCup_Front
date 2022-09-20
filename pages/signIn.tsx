@@ -39,7 +39,7 @@ export default function SignIn() {
             formError.password = true;
         }
         if (!formError.mailAddress && !formError.password) {
-            router.push("/inputDiary");
+            router.push("/makeDiary");
         }
         setErrorFormData(formError);
     };
