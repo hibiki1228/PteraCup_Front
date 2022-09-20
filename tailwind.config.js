@@ -4,9 +4,8 @@ for (let i=0; i < 100;i++) {
   gradient_dict["gradient-round-"+String(i)] = "conic-gradient(#d5525f 0% " + String(i) + "%, #d9d9d9 " + String(i) + "% 100%);"
 }
 module.exports = {
-  content: [],
   presets: [],
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'media', // or 'class'
   theme: {
     screens: {

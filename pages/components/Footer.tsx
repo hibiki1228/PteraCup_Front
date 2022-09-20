@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <div className="sticky bottom-0 bg-amber-100 border-amber-200 border-y-2 h-20">
             <div className="grid grid-cols-3 mt-4">
-                <Link href="/inputDiary">
+                <Link href="/makeDiary">
                     <div
                         className={
                             " border-2 border-red-200 bg-amber-200 rounded-full font-medium text-lg text-center p-2 mx-auto " +
