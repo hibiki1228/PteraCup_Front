@@ -1,4 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+const gradient_dict = {}
+for (let i=0; i < 100;i++) {
+  gradient_dict["gradient-round-"+String(i)] = "conic-gradient(#d5525f 0% " + String(i) + "%, #d9d9d9 " + String(i) + "% 100%);"
+}
 module.exports = {
   content: [],
   presets: [],
@@ -128,7 +132,7 @@ module.exports = {
     backdropSaturate: ({ theme }) => theme('saturate'),
     backdropSepia: ({ theme }) => theme('sepia'),
     backgroundColor: ({ theme }) => theme('colors'),
-    backgroundImage: {
+    backgroundImage: Object.assign({
       none: 'none',
       'gradient-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
       'gradient-to-tr': 'linear-gradient(to top right, var(--tw-gradient-stops))',
@@ -138,7 +142,9 @@ module.exports = {
       'gradient-to-bl': 'linear-gradient(to bottom left, var(--tw-gradient-stops))',
       'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
       'gradient-to-tl': 'linear-gradient(to top left, var(--tw-gradient-stops))',
-    },
+      'gradient-round': "conic-gradient(#d5525f 0% 60%, #d9d9d9 60% 100%);",
+
+    },gradient_dict),
     backgroundOpacity: ({ theme }) => theme('opacity'),
     backgroundPosition: {
       bottom: 'bottom',
