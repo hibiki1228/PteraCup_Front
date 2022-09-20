@@ -21,16 +21,19 @@ export default function SignUp() {
         password: "",
         confirmPassword: "",
     });
-    const [formErrors, setFormErrors] = useState<errorSignUpElement>({
+    const initialErrorState = {
         username: false,
         mailAddress: false,
         password: false,
         confirmPassword: false,
-    });
+    };
+    const [formErrors, setFormErrors] =
+        useState<errorSignUpElement>(initialErrorState);
     const handleChange = (event) => {
         event.preventDefault();
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
+        console.log(formData);
     };
 
     const signUp = (event) => {
@@ -40,7 +43,7 @@ export default function SignUp() {
         let passwordPattern =
             /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,100}$/;
         console.log(formData);
-        const formError = formErrors;
+        const formError = initialErrorState;
         if (!mailAddressPattern.test(formData.mailAddress)) {
             formError.mailAddress = true;
         }
@@ -50,8 +53,9 @@ export default function SignUp() {
         if (formData.password !== formData.confirmPassword) {
             formError.confirmPassword = true;
         }
-        console.log(formError);
-        if (formError === formErrors) {
+        console.log(formErrors);
+        console.log(formError === formErrors);
+        if (formError === initialErrorState) {
             router.push("/inputDiary");
         }
         setFormErrors(formError);
@@ -85,6 +89,7 @@ export default function SignUp() {
                         )}
                         <input
                             name="password"
+                            type="password"
                             onChange={handleChange}
                             className="rounded w-64 m-4"
                             placeholder="password"
@@ -94,6 +99,7 @@ export default function SignUp() {
                         )}
                         <input
                             name="confirmPassword"
+                            type="password"
                             onChange={handleChange}
                             className="rounded w-64 m-4"
                             placeholder="password"

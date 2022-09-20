@@ -32,6 +32,7 @@ export default function SignIn() {
                         ></input>
                         <input
                             name="password"
+                            type="password"
                             onChange={handleChange}
                             className="rounded w-64 m-4"
                             placeholder="password"
