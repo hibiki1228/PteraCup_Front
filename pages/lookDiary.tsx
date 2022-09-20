@@ -1,4 +1,5 @@
 import Diary from "./components/diary";
+import Footer from "./components/Footer";
 import Header from "./components/header";
 
 export default function LookDiary() {
@@ -41,6 +42,7 @@ export default function LookDiary() {
                     ))}
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 }

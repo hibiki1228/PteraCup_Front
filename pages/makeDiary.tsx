@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { KeyboardEvent, useState } from "react";
+import Footer from "./components/Footer";
 import Header from "./components/header";
 
 export default function MakeDiary() {
@@ -66,10 +67,7 @@ export default function MakeDiary() {
                             {/* <div className=" rounded border-2 bg-white h-80 w-64 -mt-80  border-yellow-200"></div> */}
                             {textLength}
                             <div>
-                                <div
-                                    className="bg-white p-2  w-32 justfy-center m-auto h-18 rounded
-"
-                                >
+                                <div className="bg-white p-2  w-32 justfy-center m-auto h-18 rounded">
                                     <button
                                         type="submit"
                                         className="capitalize
@@ -101,6 +99,7 @@ export default function MakeDiary() {
                                     >
                                         日記をつける
                                         <Image
+                                            alt="pencil"
                                             src="/images/pencil.png"
                                             width={30}
                                             height={24}
@@ -112,6 +111,7 @@ export default function MakeDiary() {
                     </form>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 }
