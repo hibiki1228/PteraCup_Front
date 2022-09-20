@@ -9,6 +9,11 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'media', // or 'class'
   theme: {
+    extend: {
+      fontFamily: {
+        fancy: ["'Zen Maru Gothic', sans-serif"],
+      },
+    },
     screens: {
       sm: '640px',
       md: '768px',
