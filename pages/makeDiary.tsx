@@ -99,6 +99,7 @@ export default function MakeDiary() {
                                     >
                                         日記をつける
                                         <Image
+                                            alt="pencil"
                                             src="/images/pencil.png"
                                             width={30}
                                             height={24}

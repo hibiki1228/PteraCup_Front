@@ -31,7 +31,7 @@ export default function LookDiary() {
             <div className="flex flex-col min-h-screen">
                 <div className="m-8 mt-24 flex-grow">
                     {testDatas.map((testData, index) => (
-                        <div>
+                        <div key={index}>
                             <Diary
                                 author={testData.author}
                                 title={testData.title}
