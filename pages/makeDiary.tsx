@@ -48,10 +48,10 @@ export default function MakeDiary() {
         }
     };
     return (
-        <div>
+        <div className="font-fancy">
             <Header></Header>
             <div className="flex flex-col min-h-screen">
-                <div className="m-8 mt-24 flex-grow">
+                <div className="m-8 mt-24">
                     <form onSubmit={sendDiaryText}>
                         <div className="text-lg">今日の出来事</div>
                         <div className="ml-4">
@@ -64,7 +64,7 @@ export default function MakeDiary() {
                                 className=" rounded-md text-black p-2 border-2 resize-none outline-none w-64 -ml-2 bg-white h-80 border-yellow-200"
                                 onChange={handleDiaryTextForm}
                             ></textarea>
-                            <div className=" rounded border-2 bg-white h-80 w-64 -mt-80  border-yellow-200"></div>
+                            {/* <div className=" rounded border-2 bg-white h-80 w-64 -mt-80  border-yellow-200"></div> */}
                             {textLength}
                             <div>
                                 <div className="bg-white p-2  w-32 justfy-center m-auto h-18 rounded">

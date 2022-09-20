@@ -26,7 +26,7 @@ export default function LookDiary() {
     ];
 
     return (
-        <div>
+        <div className=" font-fancy">
             <Header></Header>
             <div className="flex flex-col min-h-screen">
                 <div className="m-8 mt-24 flex-grow">
