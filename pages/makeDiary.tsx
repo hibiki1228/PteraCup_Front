@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { KeyboardEvent, useState } from "react";
+import Footer from "./components/Footer";
+import Header from "./components/header";
 
 export default function MakeDiary() {
     const [diaryText, setDiaryText] = useState("");
@@ -47,8 +49,9 @@ export default function MakeDiary() {
     };
     return (
         <div>
-            <div>
-                <div className="m-8 mt-24">
+            <Header></Header>
+            <div className="flex flex-col min-h-screen">
+                <div className="m-8 mt-24 flex-grow">
                     <form onSubmit={sendDiaryText}>
                         <div className="text-lg">今日の出来事</div>
                         <div className="ml-4">
@@ -64,10 +67,7 @@ export default function MakeDiary() {
                             <div className=" rounded border-2 bg-white h-80 w-64 -mt-80  border-yellow-200"></div>
                             {textLength}
                             <div>
-                                <div
-                                    className="bg-white p-2  w-32 justfy-center m-auto h-18 rounded
-"
-                                >
+                                <div className="bg-white p-2  w-32 justfy-center m-auto h-18 rounded">
                                     <button
                                         type="submit"
                                         className="capitalize
@@ -110,6 +110,7 @@ export default function MakeDiary() {
                     </form>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 }
