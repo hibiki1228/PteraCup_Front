@@ -1,6 +1,11 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-
+const initialErrorState = {
+    username: false,
+    mailAddress: false,
+    password: false,
+    confirmPassword: false,
+};
 export default function SignUp() {
     const router = useRouter();
     type signUpElement = {
@@ -21,12 +26,7 @@ export default function SignUp() {
         password: "",
         confirmPassword: "",
     });
-    const initialErrorState = {
-        username: false,
-        mailAddress: false,
-        password: false,
-        confirmPassword: false,
-    };
+
     const [formErrors, setFormErrors] =
         useState<errorSignUpElement>(initialErrorState);
     const handleChange = (event) => {
@@ -38,12 +38,16 @@ export default function SignUp() {
 
     const signUp = (event) => {
         event.preventDefault();
+        console.log(initialErrorState);
+
         let mailAddressPattern =
             /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/;
         let passwordPattern =
             /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,100}$/;
-        console.log(formData);
-        const formError = initialErrorState;
+        let formError = Object.assign({}, initialErrorState);
+        if (formData.username === "") {
+            formError.username = true;
+        }
         if (!mailAddressPattern.test(formData.mailAddress)) {
             formError.mailAddress = true;
         }
@@ -53,19 +57,26 @@ export default function SignUp() {
         if (formData.password !== formData.confirmPassword) {
             formError.confirmPassword = true;
         }
-        console.log(formErrors);
-        console.log(formError === formErrors);
-        if (formError === initialErrorState) {
+        if (
+            !formError.confirmPassword &&
+            !formError.username &&
+            !formError.password &&
+            !formError.mailAddress
+        ) {
             router.push("/inputDiary");
         }
         setFormErrors(formError);
-        console.log(formErrors);
     };
     return (
         <div>
             <div className="border-2 rounded m-4 mt-12">
                 <form onSubmit={signUp}>
                     <div className="flex flex-col">
+                        {formErrors.username && (
+                            <div className="text-xs text-red-500">
+                                ユーザーネームが入力されていません
+                            </div>
+                        )}
                         <input
                             name="username"
                             onChange={handleChange}
@@ -74,7 +85,9 @@ export default function SignUp() {
                         ></input>
 
                         {formErrors.mailAddress && (
-                            <div>無効なメールアドレスです</div>
+                            <div className="text-xs text-red-500">
+                                無効なメールアドレスです
+                            </div>
                         )}
                         <input
                             name="mailAddress"
@@ -83,7 +96,7 @@ export default function SignUp() {
                             placeholder="example@example.com"
                         ></input>
                         {formErrors.password && (
-                            <div>
+                            <div className="text-xs text-red-500">
                                 パスワードは半角英小文字大文字数字をそれぞれ1種類以上含む8文字以上100文字以下で作成してください
                             </div>
                         )}
@@ -95,7 +108,9 @@ export default function SignUp() {
                             placeholder="password"
                         ></input>
                         {formErrors.confirmPassword && (
-                            <div>パスワードが一致しません</div>
+                            <div className="text-xs text-red-500">
+                                パスワードが一致しません
+                            </div>
                         )}
                         <input
                             name="confirmPassword"
