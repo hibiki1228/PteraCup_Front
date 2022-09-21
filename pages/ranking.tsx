@@ -94,6 +94,7 @@ export default function Ranking() {
                 <div>
                     {testDatas.map((data, index) => (
                         <RankingElement
+                            key={index}
                             username={data.username}
                             pageNumber={data.pageNumber}
                             wordNumber={data.wordNumber}
