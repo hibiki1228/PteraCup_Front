@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Diary from "./components/diary";
 import Footer from "./components/Footer";
 import Header from "./components/header";
@@ -26,12 +27,12 @@ export default function LookDiary() {
     ];
 
     return (
-        <div className=" font-fancy">
+        <div className="bg-slate-800 font-fancy">
             <Header></Header>
             <div className="flex flex-col min-h-screen">
-                <div className="m-8 mt-24 flex-grow">
+                <div className="m-12 mt-16 flex-grow">
                     {testDatas.map((testData, index) => (
-                        <div key={index}>
+                        <div key={index} className="bg-amber-50 rounded-xl">
                             <Diary
                                 author={testData.author}
                                 title={testData.title}
