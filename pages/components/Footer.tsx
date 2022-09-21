@@ -13,7 +13,7 @@ export default function Footer() {
         return (
             <div className="sticky bottom-0">
                 <Link href="/makeDiary">
-                    <a className="  mx-auto items-center flex -mb-16 justify-center">
+                    <a className=" animate-bounce mx-auto items-center flex -mb-16 justify-center">
                         <div
                             className={
                                 "p-4  rounded-full border-4 sm:p-4 duration-300 sm:duration-300 " +
