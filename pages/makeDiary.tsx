@@ -2,10 +2,10 @@ import Image from "next/image";
 import { KeyboardEvent, useState } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/header";
-import { getWindowSize } from "./hooks/getWindowSize";
+import { useWindowSize } from "./hooks/getWindowSize";
 
 export default function MakeDiary() {
-    const { height, width } = getWindowSize();
+    const { height, width } = useWindowSize();
     const [diaryText, setDiaryText] = useState("");
     const [textLength, setTextLength] = useState<number>(0);
     // const box = useRef(0);
