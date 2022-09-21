@@ -45,37 +45,46 @@ export default function SignIn() {
     };
     return (
         <div>
-            <div className="border-2 rounded m-4 mt-12">
+            <div className="text-3xl font-semibold text-center mt-4">
+                サインイン
+            </div>
+            <div className="border-4 border-amber-200 rounded mx-12 mt-8 bg-amber-200">
                 <form onSubmit={signIn}>
                     <div className="flex flex-col">
-                        {errorFormData.mailAddress && (
-                            <div className="mx-4 text-xs text-red-500">
-                                無効なメールアドレスです
-                            </div>
-                        )}
+                        <div className="mx-4 mt-2 text-sm">メールアドレス</div>
                         <input
                             name="mailAddress"
                             onChange={handleChange}
-                            className="rounded w-64 m-4"
+                            className="rounded w-64 mb-2 mx-4 p-0.5"
                             placeholder="example@example.com"
                         ></input>
-                        {errorFormData.password && (
-                            <div className="mx-4 text-xs text-red-500">
-                                パスワードは半角英小文字大文字数字をそれぞれ1種類以上含む8文字以上100文字以下で入力してください
+                        {errorFormData.mailAddress && (
+                            <div className="mx-4 mb-2 text-xs text-red-500">
+                                無効なメールアドレスです
                             </div>
                         )}
+                        <div className="mx-4 mt-4 text-sm">パスワード</div>
                         <input
                             name="password"
                             type="password"
                             onChange={handleChange}
-                            className="rounded w-64 m-4"
+                            className="rounded w-64 mb-2 mx-4 p-0.5"
                             placeholder="password"
                         ></input>
-                        <button type="submit"></button>
+                        {errorFormData.password && (
+                            <div className="mx-4 mb-6 text-xs text-red-500">
+                                パスワードは半角英小文字大文字数字をそれぞれ1種類以上含む8文字以上100文字以下で入力してください
+                            </div>
+                        )}
+                        <div className=" grid-cols-3 flex flex-row-reverse">
+                            <button
+                                type="submit"
+                                className=" rounded border-2 border-red-300 bg-red-300 hover:border-red-400 hover:bg-red-400 text-center text-white font-semibold my-4 mr-4 p-1"
+                            >
+                                サインイン
+                            </button>
+                        </div>
                     </div>
-                    <button type="submit" className="rounded border-2  mx-auto">
-                        サインイン
-                    </button>
                 </form>
             </div>
         </div>
