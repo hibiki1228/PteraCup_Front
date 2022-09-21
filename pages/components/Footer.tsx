@@ -8,9 +8,9 @@ export default function Footer() {
                 <Link href="/makeDiary">
                     <div
                         className={
-                            " border-2 border-red-200 bg-amber-200 rounded-full font-medium text-lg text-center p-2 mx-auto " +
-                            (router.pathname == "/inputDiary"
-                                ? "bg-red-200 text-cyan-300"
+                            " border-2 border-red-300 bg-amber-200 hover:bg-red-200 rounded-full font-medium text-lg text-center p-2 mx-auto " +
+                            (router.pathname == "/makeDiary"
+                                ? "bg-red-300 text-cyan-300"
                                 : "bg-amber-200")
                         }
                     >
@@ -20,9 +20,9 @@ export default function Footer() {
                 <Link href="/lookDiary">
                     <div
                         className={
-                            " border-2 border-red-200 bg-amber-200 rounded-full font-medium text-lg text-center p-2 mx-auto " +
+                            " border-2 border-red-300 bg-amber-200 hover:bg-red-200 rounded-full font-medium text-lg text-center p-2 mx-auto " +
                             (router.pathname == "/lookDiary"
-                                ? "bg-red-200 text-cyan-300"
+                                ? "bg-red-300 text-cyan-300"
                                 : "bg-amber-200")
                         }
                     >
@@ -32,9 +32,9 @@ export default function Footer() {
                 <Link href="/status">
                     <div
                         className={
-                            " border-2 border-red-200 bg-amber-200 rounded-full font-medium placeholder:text-lg text-center p-2 mx-auto " +
+                            " border-2 border-red-300 bg-amber-200 hover:bg-red-200 rounded-full font-medium placeholder:text-lg text-center p-2 mx-auto " +
                             (router.pathname == "/status"
-                                ? "bg-red-200 text-cyan-300"
+                                ? "bg-red-300 text-cyan-300"
                                 : "bg-amber-200")
                         }
                     >
