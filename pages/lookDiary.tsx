@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Diary from "./components/diary";
 import Footer from "./components/Footer";
 import Header from "./components/header";

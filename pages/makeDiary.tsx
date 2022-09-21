@@ -59,6 +59,7 @@ export default function MakeDiary() {
                 objectFit="cover"
                 className="-z-5 "
             ></Image>
+
             <Header></Header>
             <div className="flex flex-col min-h-screen ">
                 <div className="z-0">
