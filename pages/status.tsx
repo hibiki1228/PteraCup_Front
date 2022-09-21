@@ -11,7 +11,7 @@ export default function Status() {
     };
 
     return (
-        <div className="bg-slate-800">
+        <div className="bg-slate-800 font-fancy">
             <Header></Header>
             <div className="flex flex-col min-h-screen">
                 <div className="flex-grow">
