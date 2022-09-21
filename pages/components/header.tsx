@@ -4,14 +4,30 @@ export default function Header() {
 
     return (
         <div
-            className="sticky top-0 border-4 rounded-b-2xl border-red-200 bg-gradient-to-r from-pink-200 via-sky-200 to-yellow-200 shadow-2xl
-                      shadow-red-400/50 text-gray-600 font-mono space-y-4 z-30"
+            className="sticky top-0 border-4 rounded-b-2xl border-red-200 bg-gradient-to-b from-amber-300 to-amber-100 shadow-2xl
+                      shadow-red-400/50 text-gray-600 space-y-4 pt-1"
         >
-            <div className="text-3xl text-center font-semibold z-10">
-                <div>Random Exchange Diary</div>
+            <div className="flex flex-row">
+                <Image
+                    alt="和雲3"
+                    src="/images/和雲3.png"
+                    width={110}
+                    height={55}
+                    className="opacity-50"
+                ></Image>
+                <div className="text-3xl text-center font-serif font-semibold pt-2 z-10">
+                    <div>Random Exchange Diary</div>
+                </div>
+                <Image
+                    alt="和雲4"
+                    src="/images/和雲4.png"
+                    width={110}
+                    height={55}
+                    className="opacity-50"
+                ></Image>
             </div>
             <div className="flex">
-                <div className="basis-3/4 text-xl font-normal text-left text-bottom">
+                <div className="basis-3/4 text-xl font-normal px-2 text-left text-bottom">
                     <div>
                         Date：
                         {String(date.getFullYear()) +
@@ -25,8 +41,8 @@ export default function Header() {
                     <Image
                         alt="touka_otome"
                         src="/images/touka_otome.png"
-                        width={80}
-                        height={80}
+                        width={90}
+                        height={90}
                         objectFit="cover"
                     ></Image>
                 </div>
