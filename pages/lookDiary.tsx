@@ -1,3 +1,4 @@
+/* eslint-disable */
 import axios, { AxiosResponse } from "axios";
 import { parseCookies } from "nookies";
 import { useEffect, useState } from "react";
@@ -5,14 +6,14 @@ import Footer from "./components/Footer";
 import Header from "./components/header";
 
 const requestHeader = {
-    Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
     "Accept-Encoding": "gzip, deflate, br",
     "Accept-Language": "ja,en-US;q=0.9,en;q=0.8",
     "Cache-Control": "no-cache",
-    Connection: "keep-alive",
-    Cookie: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NTY1NDcwNzkuMDU1OTMyLCJ1c2VyX2lkIjoiNjRmMWE4MGEtNjM1MS00ODQyLWE2ZGYtMmU5MzNlMTAyMzRkIn0.AtJ1LCayUjxsRrwD5hXeaHC3dp4dphI7PWD2Ad0gpKY; _ga=GA1.1.2011111420.1656921552; _ga_2BGD3DNW7C=GS1.1.1656939374.2.1.1656939721.0; next-auth.callback-url=http%3A%2F%2Flocalhost%3A3000; next-auth.csrf-token=f8c78423f46d8944ea01490f5668e6e5c1cfa0a38d85f9705da641ade23ef4e1%7C250deeb25d6850e1ee83b58a465d8b8bb7ea224095d7a44d069e2ffa2fe15301; accessToken=test",
-    Host: "localhost:3000",
-    Pragma: "no-cache",
+    "Connection": "keep-alive",
+    "Cookie": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NTY1NDcwNzkuMDU1OTMyLCJ1c2VyX2lkIjoiNjRmMWE4MGEtNjM1MS00ODQyLWE2ZGYtMmU5MzNlMTAyMzRkIn0.AtJ1LCayUjxsRrwD5hXeaHC3dp4dphI7PWD2Ad0gpKY; _ga=GA1.1.2011111420.1656921552; _ga_2BGD3DNW7C=GS1.1.1656939374.2.1.1656939721.0; next-auth.callback-url=http%3A%2F%2Flocalhost%3A3000; next-auth.csrf-token=f8c78423f46d8944ea01490f5668e6e5c1cfa0a38d85f9705da641ade23ef4e1%7C250deeb25d6850e1ee83b58a465d8b8bb7ea224095d7a44d069e2ffa2fe15301; accessToken=test",
+    "Host": "localhost:3000",
+    "Pragma": "no-cache",
     "sec-ch-ua":
         '"Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"',
     "sec-ch-ua-mobile": "?0",
@@ -65,7 +66,9 @@ export default function LookDiary() {
     const [othersDiaries, setOthersDiary] = useState<diaryType[]>();
     const getOthersDiaries = () => {
         axios
-            .get(url + "/diary/2")
+            .get(url + "/diary/2", {
+                headers: requestHeader,
+            })
             .then((res: AxiosResponse<responseData[]>) => {
                 const { data, status } = res;
                 console.log(res.data);
