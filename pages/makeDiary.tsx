@@ -50,34 +50,46 @@ export default function MakeDiary() {
         }
     };
     return (
-        <div className="font-fancy">
+        <div className="font-fancy bg-slate-800">
+            <Image
+                alt="goldsakura"
+                src="/images/goldsakura.png"
+                layout="fill"
+                objectFit="cover"
+                className="-z-5 "
+            ></Image>
             <Header></Header>
-            <div className="flex flex-col min-h-screen">
-                <form
-                    onSubmit={sendDiaryText}
-                    className="h-screen w-screen flex justify-center items-center"
-                >
-                    <div className="ml-4">
-                        <div className=" text-center sm:duration-700 md:duration-700 lg:duration-700 xl:duration-700 xl:text-3xl lg:text-2xl md:text-xl sm:text-lg">
-                            今日の出来事
+            <div className="flex flex-col min-h-screen ">
+                <div className="z-0">
+                    <form
+                        onSubmit={sendDiaryText}
+                        className="h-screen w-screen flex justify-center items-center"
+                    >
+                        <div className="ml-4">
+                            <div className="text-white text-center sm:duration-700 md:duration-700 lg:duration-700 xl:duration-700 xl:text-3xl lg:text-2xl md:text-xl sm:text-lg">
+                                今日の出来事
+                            </div>
+                            <textarea
+                                onKeyDown={handleKeyDown}
+                                cols={width > 1280 ? 64 : 32}
+                                rows={16}
+                                maxLength={textMaxLength}
+                                value={diaryText}
+                                className=" rounded-md text-black p-2 flex justify-center items-center border-2 resize-none outline-none mx-auto bg-white h-80 border-yellow-200  sm:duration-700 md:duration-700 lg:h-80 lg:text-3xl lg:w-4/5 lg:duration-700 xl:duration-700 xl:h-96 xl:text-4xl  xl:w-full"
+                                onChange={handleDiaryTextForm}
+                            ></textarea>
+                            {/* <div className=" rounded border-2 bg-white h-80 w-64 -mt-80  border-yellow-200"></div> */}
+                            <div className="text-white text-right">
+                                {textLength}文字
+                            </div>
                         </div>
-                        <textarea
-                            onKeyDown={handleKeyDown}
-                            cols={width > 1280 ? 64 : 32}
-                            rows={16}
-                            maxLength={textMaxLength}
-                            value={diaryText}
-                            className=" rounded-md text-black p-2 flex justify-center items-center border-2 resize-none outline-none mx-auto bg-white h-80 border-yellow-200  sm:duration-700 md:duration-700 lg:h-80 lg:text-3xl lg:w-4/5 lg:duration-700 xl:duration-700 xl:h-96 xl:text-4xl  xl:w-full"
-                            onChange={handleDiaryTextForm}
-                        ></textarea>
-                        {/* <div className=" rounded border-2 bg-white h-80 w-64 -mt-80  border-yellow-200"></div> */}
-                        <div className=" text-right">{textLength}文字</div>
-                        <div>
-                            <div className="bg-white p-2  w-32 justfy-center m-auto h-18 rounded">
-                                <button
-                                    type="submit"
-                                    className="capitalize
-
+                        <div className="m-8 mt-24">
+                            <div>
+                                <div className="bg-white p-2 w-32 justfy-center m-auto h-18 absolute bottom-0 rounded">
+                                    <button
+                                        type="submit"
+                                        className="capitalize
+                                    
                                     text-black
                                     inline-block
                                     text-sm
@@ -102,19 +114,20 @@ export default function MakeDiary() {
                                     hover:before:w-full
                                     hover:before:opacity-100
                                     "
-                                >
-                                    日記をつける
-                                    <Image
-                                        alt="pencil"
-                                        src="/images/pencil.png"
-                                        width={30}
-                                        height={24}
-                                    ></Image>
-                                </button>
+                                    >
+                                        日記をつける
+                                        <Image
+                                            alt="pencil"
+                                            src="/images/pencil.png"
+                                            width={30}
+                                            height={24}
+                                        ></Image>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
             <Footer></Footer>
         </div>
