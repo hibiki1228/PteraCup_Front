@@ -5,7 +5,7 @@ export default function Header() {
     return (
         <div
             className="sticky top-0 border-4 rounded-b-2xl border-red-200 bg-gradient-to-r from-pink-200 via-sky-200 to-yellow-200 shadow-2xl
-                      shadow-red-400/50 text-gray-600 font-mono space-y-4"
+                      shadow-red-400/50 text-gray-600 font-mono space-y-4 z-30"
         >
             <div className="text-3xl text-center font-semibold z-10">
                 <div>Random Exchange Diary</div>
