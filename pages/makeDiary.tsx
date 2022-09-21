@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { KeyboardEvent, useState } from "react";
+import { useWindowSize } from "../lib/hooks/GetWindowSize";
 import Footer from "./components/Footer";
 import Header from "./components/header";
-import { useWindowSize } from "./hooks/getWindowSize";
 
 export default function MakeDiary() {
     const { height, width } = useWindowSize();
