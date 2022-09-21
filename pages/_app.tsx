@@ -1,3 +1,4 @@
+import "ress";
 import "tailwindcss/tailwind.css";
 import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {

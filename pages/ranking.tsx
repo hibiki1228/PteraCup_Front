@@ -55,8 +55,8 @@ export default function Ranking() {
     return (
         <div className="font-fancy">
             <Header></Header>
-            <div className="flex flex-col min-h-screen">
-                <div className=" flex flex-row  text-black  justify-center items-center">
+            <div>
+                <div className=" flex flex-col right-72  top-32  w-screen fixed text-black  justify-center items-center">
                     <button
                         className={
                             "w-1/5 h-12 m-4 rounded-xl border-2 " +
@@ -91,18 +91,20 @@ export default function Ranking() {
                         交換数
                     </button>
                 </div>
-                <div>
-                    {testDatas.map((data, index) => (
-                        <RankingElement
-                            key={index}
-                            username={data.username}
-                            pageNumber={data.pageNumber}
-                            wordNumber={data.wordNumber}
-                            exchangeNumber={data.exchangeNumber}
-                            outputType={outputType}
-                            rank={index + 1}
-                        ></RankingElement>
-                    ))}
+                <div className="flex flex-col min-h-screen">
+                    <div className="mt-16">
+                        {testDatas.map((data, index) => (
+                            <RankingElement
+                                key={index}
+                                username={data.username}
+                                pageNumber={data.pageNumber}
+                                wordNumber={data.wordNumber}
+                                exchangeNumber={data.exchangeNumber}
+                                outputType={outputType}
+                                rank={index + 1}
+                            ></RankingElement>
+                        ))}
+                    </div>
                 </div>
             </div>
             <Footer></Footer>
