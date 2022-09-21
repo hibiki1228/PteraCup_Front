@@ -4,6 +4,7 @@ import { useWindowSize } from "../lib/hooks/GetWindowSize";
 import Bookmark from "./components/bookmark";
 import Footer from "./components/Footer";
 import Header from "./components/header";
+import TextArea from "./components/textArea";
 
 export default function MakeDiary() {
     const { height, width } = useWindowSize();
@@ -11,7 +12,7 @@ export default function MakeDiary() {
     const [textLength, setTextLength] = useState<number>(0);
     // const box = useRef(0);
 
-    const textMaxLength = 100;
+    const textMaxLength = 140;
     // const test = () => {
     //     return (
     //         "rounded-full bg-blue-500 w-8 h-8 bg-gradient-round-" + textLength
@@ -72,7 +73,16 @@ export default function MakeDiary() {
                                     <div className=" ml-0 mb-12 xl:ml-32 xl:mb-12  ">
                                         <Bookmark text="今日の出来事"></Bookmark>
                                     </div>
-                                    <textarea
+                                    <TextArea
+                                        handleKeyDown={handleKeyDown}
+                                        width={width}
+                                        diaryText={diaryText}
+                                        textMaxLength={textMaxLength}
+                                        handleDiaryTextForm={
+                                            handleDiaryTextForm
+                                        }
+                                    ></TextArea>
+                                    {/* <textarea
                                         onKeyDown={handleKeyDown}
                                         cols={width > 1280 ? 64 : 32}
                                         rows={16}
@@ -80,7 +90,7 @@ export default function MakeDiary() {
                                         value={diaryText}
                                         className=" rounded-md text-black p-2 flex justify-center items-center border-2 resize-none outline-none mx-auto bg-white h-80 border-yellow-200  sm:duration-700 md:duration-700 lg:h-80 lg:text-3xl lg:w-4/5 lg:duration-700 xl:duration-700 xl:h-96 xl:text-4xl  xl:w-4/5"
                                         onChange={handleDiaryTextForm}
-                                    ></textarea>
+                                    ></textarea> */}
                                 </div>
                                 <span className="flex flex-col-reverse grid-cols-3 mx-4">
                                     <div>
