@@ -1,9 +1,10 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { useWindowSize } from "../../lib/hooks/GetWindowSize";
 export default function Header() {
     const date = new Date();
     const { width, height } = useWindowSize();
-
+    const router = useRouter();
     return (
         <div
             className="sticky top-0 border-4 rounded-b-2xl border-red-200 bg-gradient-to-b from-amber-300 to-amber-100 shadow-2xl
@@ -29,16 +30,20 @@ export default function Header() {
                 ></Image>
             </div>
             <div className="flex">
-                <div className="basis-3/4 text-xs top-24 sm:text-xl font-normal px-2 absolute sm:top-8  text-left text-bottom">
-                    <div>
-                        Date：
-                        {String(date.getFullYear()) +
-                            "/" +
-                            String(date.getMonth() + 1) +
-                            "/" +
-                            String(date.getDate())}
-                    </div>
-                </div>
+                {router.pathname != "/signIn" &&
+                    router.pathname != "/signUp" &&
+                    router.pathname != "/" && (
+                        <div className="basis-3/4 text-xs bottom-2 sm:text-xl font-normal px-2 absolute sm:bottom-0  text-left text-bottom">
+                            <div>
+                                Date：
+                                {String(date.getFullYear()) +
+                                    "/" +
+                                    String(date.getMonth() + 1) +
+                                    "/" +
+                                    String(date.getDate())}
+                            </div>
+                        </div>
+                    )}
                 <div className="basis-1/4 absolute  right-0">
                     <Image
                         alt="touka_otome"
