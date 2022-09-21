@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { KeyboardEvent, useState } from "react";
 import { useWindowSize } from "../lib/hooks/GetWindowSize";
+import Bookmark from "./components/bookmark";
 import Footer from "./components/Footer";
 import Header from "./components/header";
 
@@ -66,9 +67,19 @@ export default function MakeDiary() {
                         className="h-screen w-screen flex justify-center items-center"
                     >
                         <div className="ml-4">
-                            <div className="text-white text-center sm:duration-700 md:duration-700 lg:duration-700 xl:duration-700 xl:text-3xl lg:text-2xl md:text-xl sm:text-lg">
-                                今日の出来事
+                            {/* <div className="bg-pink-200 h-20 opacity-70">
+                                <div className="bg-pink-300 mx-2 my-4 opacity-100">
+                                    <div className="rounded border-4 h-16 w-64 border-transparent">
+                                        <div className="text-white text-center sm:duration-700 md:duration-700 lg:duration-700 xl:duration-700 xl:text-3xl lg:text-2xl md:text-xl sm:text-lg">
+                                            今日の出来事
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> */}
+                            <div className=" ml-32 mb-12">
+                                <Bookmark text="今日の出来事"></Bookmark>
                             </div>
+
                             <textarea
                                 onKeyDown={handleKeyDown}
                                 cols={width > 1280 ? 64 : 32}
@@ -89,7 +100,6 @@ export default function MakeDiary() {
                                     <button
                                         type="submit"
                                         className="capitalize
-                                    
                                     text-black
                                     inline-block
                                     text-sm
