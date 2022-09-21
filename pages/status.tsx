@@ -1,3 +1,6 @@
+import Footer from "./components/Footer";
+import Header from "./components/header";
+
 export default function Status() {
     const user = {
         name: "test",
@@ -9,6 +12,7 @@ export default function Status() {
 
     return (
         <div className="bg-slate-800">
+            <Header></Header>
             <div className="flex flex-col min-h-screen">
                 <div className="flex-grow">
                     <div className=" text-center">
@@ -39,6 +43,7 @@ export default function Status() {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 }
