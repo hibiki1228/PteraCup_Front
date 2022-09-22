@@ -27,9 +27,9 @@ export default function LookDiary() {
     ];
 
     return (
-        <div className="bg-slate-800 font-fancy">
+        <div className="bg-slate-800  font-fancy">
             <Header></Header>
-            <div className="flex flex-col min-h-screen">
+            <div className="flex flex-col  min-h-screen">
                 <div className="m-12 mt-16 flex-grow">
                     {testDatas.map((testData, index) => (
                         <div key={index} className="bg-amber-50 rounded-xl">
