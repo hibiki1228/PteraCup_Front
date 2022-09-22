@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/header";
 
@@ -16,11 +15,11 @@ export default function Status() {
         exchange: "test",
     };
     const query = router.query;
-    useEffect(() => {
-        console.log(query);
-        console.log(query.path);
-        router.query = { path: "/status" };
-    }, [query]);
+    // useEffect(() => {
+    //     console.log(query);
+    //     console.log(query.path);
+    //     router.query = { path: "/status" };
+    // }, [router]);
     return (
         <motion.div
             initial={{

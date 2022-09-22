@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { KeyboardEvent, useEffect, useState } from "react";
+import { KeyboardEvent, useState } from "react";
 import { useWindowSize } from "../lib/hooks/GetWindowSize";
 import Bookmark from "./components/bookmark";
 import Footer from "./components/Footer";
@@ -13,7 +13,6 @@ export default function MakeDiary() {
     const [textLength, setTextLength] = useState<number>(0);
     const router = useRouter();
     console.log(router.query["path"]);
-    // const box = useRef(0);
 
     const textMaxLength = 140;
 
@@ -34,11 +33,11 @@ export default function MakeDiary() {
     };
 
     const query = router.query;
-    useEffect(() => {
-        console.log(query);
-        console.log(query.test);
-        router.query = { test: "/makeDiary" };
-    }, [query]);
+    // useEffect(() => {
+    //     console.log(query);
+    //     console.log(query.test);
+    //     router.query = { test: "/makeDiary" };
+    // }, [query]);
     return (
         <motion.div
             initial={{

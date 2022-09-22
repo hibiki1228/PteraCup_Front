@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import Diary from "./components/diary";
 import Footer from "./components/Footer";
 import Header from "./components/header";
 
-export default function lookMyDiary() {
+export default function LookMyDiary() {
     const router = useRouter();
     console.log(router.query["path"]);
 
@@ -30,12 +29,12 @@ export default function lookMyDiary() {
                 "this is a test descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
         },
     ];
-    const query = router.query;
-    useEffect(() => {
-        console.log(query);
-        console.log(query.test);
-        router.query = { test: "/lookDiary" };
-    }, [query]);
+    // const query = router.query;
+    // useEffect(() => {
+    //     console.log(query);
+    //     console.log(query.test);
+    //     router.query = { test: "/lookDiary" };
+    // }, [query]);
 
     return (
         <motion.div
@@ -46,7 +45,7 @@ export default function lookMyDiary() {
                 translateX: 0,
             }}
             exit={{
-                translateX: query.test == "" ? -10000 : 10000,
+                translateX: -10000,
             }}
         >
             <div className="font-fancy">

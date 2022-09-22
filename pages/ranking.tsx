@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Footer from "./components/Footer";
 import Header from "./components/header";
@@ -57,19 +57,19 @@ export default function Ranking() {
         setOutputType("pageNumber");
         testDatas.sort((a, b) => b.pageNumber - a.pageNumber);
     };
-    const query = router.query;
-    let pageHistory = "";
-    useEffect(() => {
-        console.log(query);
-        pageHistory = String(query.ranking);
-        router.query = {
-            lookDiary: "false",
-            makeDiary: "false",
-            lookMyDiary: "false",
-            status: "false",
-            ranking: "true",
-        };
-    }, [query]);
+    // const query = router.query;
+    // let pageHistory = "";
+    // useEffect(() => {
+    //     console.log(query);
+    //     pageHistory = String(query.ranking);
+    //     router.query = {
+    //         lookDiary: "false",
+    //         makeDiary: "false",
+    //         lookMyDiary: "false",
+    //         status: "false",
+    //         ranking: "true",
+    //     };
+    // }, [query]);
 
     return (
         <motion.div
