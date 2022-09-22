@@ -62,9 +62,6 @@ export default function LookDiary() {
                     <div className="m-12 mt-16 flex-grow">
                         {testDatas.map((testData, index) => (
                             <div key={index} className="bg-amber-50 rounded-xl">
-                                <div className="bg-yellow-300 text-black">
-                                    test:{router.query.history}
-                                </div>
                                 <Diary
                                     author={testData.author}
                                     title={testData.title}
