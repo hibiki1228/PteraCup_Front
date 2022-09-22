@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Footer from "./components/Footer";
 import Header from "./components/header";
 
@@ -13,10 +14,17 @@ export default function Status() {
     return (
         <div className="bg-slate-800 font-fancy">
             <Header></Header>
-            <div className="flex flex-col min-h-screen">
-                <div className="flex-grow">
-                    <div className=" text-center">
-                        <div className=" text-amber-50 underline decoration-red-300 mx-auto  sm:duration-700 md:duration-700 lg:duration-700 xl:duration-700 xl:w-2/5 lg:w-96  md:w-80 sm:w-64 w-52  xl:text-3xl lg:text-2xl md:text-xl sm:text-lg">
+            <div className="flex flex-col min-h-screen relative">
+                <Image
+                    alt="washi"
+                    src="/images/washi.png"
+                    layout="fill"
+                    objectFit="contain"
+                    className="-z-1"
+                ></Image>
+                <div className="flex-grow z-0">
+                    <div className="mt-20 text-center">
+                        <div className="text-black z-40 underline decoration-yellow-800 mx-auto sm:duration-700 md:duration-700 lg:duration-700 xl:duration-700 xl:w-2/5 lg:w-96 md:w-80 sm:w-64 xl:text-3xl lg:text-2xl md:text-xl sm:text-lg">
                             <div className="flex flex-row p-4">
                                 <div className="basis-3/5">ユーザー名</div>
                                 <div className="basis-2/5">{user.name}</div>
