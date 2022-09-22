@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { setCookie } from "nookies";
 import { KeyboardEvent, useState } from "react";
 import { useWindowSize } from "../lib/hooks/GetWindowSize";
 import Bookmark from "./components/bookmark";
 import Footer from "./components/Footer";
 import Header from "./components/header";
 import TextArea from "./components/textArea";
+
 export default function MakeDiary() {
     const { height, width } = useWindowSize();
     const [diaryText, setDiaryText] = useState("");
@@ -24,6 +26,12 @@ export default function MakeDiary() {
         if (diaryText === "") {
             return;
         }
+        const uid = "test";
+        setCookie(null, "myDiary", uid, {
+            username: "test",
+            diartText: diaryText,
+            title: "",
+        });
         setDiaryText("");
     };
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -33,11 +41,7 @@ export default function MakeDiary() {
     };
 
     const query = router.query;
-    // useEffect(() => {
-    //     console.log(query);
-    //     console.log(query.test);
-    //     router.query = { test: "/makeDiary" };
-    // }, [query]);
+
     return (
         <motion.div
             initial={{
@@ -72,7 +76,7 @@ export default function MakeDiary() {
                             <div className="ml-4">
                                 <div className="flex flex-col grid-cols-2 sm:flex-row sm:grid-rows-2">
                                     <div className="flex flex-col grid-cols-2">
-                                        <div className=" ml-0 mb-12 xl:ml-32 xl:mb-12  ">
+                                        <div className=" ml-0 mb-20 xl:ml-32 xl:mb-12  ">
                                             <Bookmark text="今日の出来事"></Bookmark>
                                         </div>
                                         <TextArea
