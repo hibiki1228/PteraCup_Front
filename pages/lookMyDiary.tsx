@@ -39,7 +39,12 @@ export default function LookMyDiary() {
     return (
         <motion.div
             initial={{
-                translateX: 10000,
+                translateX:
+                    router.query.history == "/ranking"
+                        ? 10000
+                        : router.query.history == "/lookDiary"
+                        ? 10000
+                        : -10000,
             }}
             animate={{
                 translateX: 0,

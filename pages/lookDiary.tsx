@@ -45,7 +45,7 @@ export default function LookDiary() {
     return (
         <motion.div
             initial={{
-                translateX: pageHistory == "true" ? -10000 : 10000,
+                translateX: router.query.history == "/ranking" ? 10000 : -10000,
             }}
             animate={{
                 translateX: 0,
@@ -57,10 +57,14 @@ export default function LookDiary() {
         >
             <div className="font-fancy">
                 <Header></Header>
+
                 <div className="flex flex-col min-h-screen">
                     <div className="m-12 mt-16 flex-grow">
                         {testDatas.map((testData, index) => (
                             <div key={index} className="bg-amber-50 rounded-xl">
+                                <div className="bg-yellow-300 text-black">
+                                    test:{router.query.history}
+                                </div>
                                 <Diary
                                     author={testData.author}
                                     title={testData.title}

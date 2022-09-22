@@ -23,7 +23,13 @@ export default function Footer() {
                 <div className="">
                     <div className=" bg-amber-100 border-amber-200 border-y-2 h-30">
                         <div className="grid grid-cols-5 mt-4 ">
-                            <Link href="/ranking">
+                            <Link
+                                href={{
+                                    pathname: "ranking",
+                                    query: { history: router.asPath },
+                                }}
+                                as="/ranking"
+                            >
                                 <a
                                     className={
                                         " border-2 border-red-300 bg-amber-200 hover:bg-red-200 rounded-full font-medium text-[4px] items-center sm:duration-300 duration-300 justify-center text-center p-1 flex sm:p-4 h-12 mx-auto sm:text-lg container mx-auto  " +
@@ -35,7 +41,13 @@ export default function Footer() {
                                     ランキング
                                 </a>
                             </Link>
-                            <Link href="/lookDiary">
+                            <Link
+                                href={{
+                                    pathname: "lookDiary",
+                                    query: { history: router.asPath },
+                                }}
+                                as="/lookDiary"
+                            >
                                 <a
                                     className={
                                         " border-2 border-red-300 bg-amber-200 hover:bg-red-200 rounded-full font-medium text-[4px] items-center sm:duration-300 duration-300 justify-center text-center p-1 flex sm:p-4 h-12 mx-auto sm:text-lg container mx-auto  " +
@@ -48,7 +60,13 @@ export default function Footer() {
                                 </a>
                             </Link>
                             <MakeDiaryButton></MakeDiaryButton>
-                            <Link href="/status">
+                            <Link
+                                href={{
+                                    pathname: "status",
+                                    query: { history: router.asPath },
+                                }}
+                                as="status"
+                            >
                                 <a
                                     className={
                                         " border-2 border-red-300 bg-amber-200 hover:bg-red-200 rounded-full font-medium text-[4px] items-center sm:duration-300 duration-300 justify-center text-center p-1 flex sm:p-4 h-12 mx-auto sm:text-lg container mx-auto  " +
@@ -60,7 +78,13 @@ export default function Footer() {
                                     ステータス
                                 </a>
                             </Link>
-                            <Link href="/lookMyDiary">
+                            <Link
+                                href={{
+                                    pathname: "lookMyDiary",
+                                    query: { history: router.asPath },
+                                }}
+                                as="lookMyDiary"
+                            >
                                 <a
                                     className={
                                         " border-2 border-red-300 bg-amber-200 hover:bg-red-200 rounded-full font-medium text-[4px] items-center sm:duration-300 duration-300 justify-center text-center p-1 flex sm:p-4 h-12 mx-auto sm:text-lg container mx-auto  " +

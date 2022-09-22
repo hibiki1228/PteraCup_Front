@@ -80,8 +80,7 @@ export default function Ranking() {
                 translateX: 0,
             }}
             exit={{
-                translateX:
-                    Object.values(router.query)[0] == "" ? -10000 : 10000,
+                translateX: router.query.history == "" ? -10000 : 10000,
             }}
         >
             <div className="font-fancy ">

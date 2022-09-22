@@ -23,7 +23,8 @@ export default function Status() {
     return (
         <motion.div
             initial={{
-                translateX: query.path == "/lookMyDiary" ? 10000 : -10000,
+                translateX:
+                    router.query.history == "/lookMyDiary" ? -10000 : 10000,
             }}
             animate={{
                 translateX: 0,
