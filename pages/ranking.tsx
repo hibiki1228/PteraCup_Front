@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { motion } from "framer-motion";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+
 import Footer from "./components/Footer";
 import Header from "./components/header";
 import RankingElement from "./components/rankingElement";
 export default function Ranking() {
+    const router = useRouter();
+    console.log(router.query["path"]);
+
     const initialTestDatas = [
         {
             username: "test",
@@ -35,77 +41,108 @@ export default function Ranking() {
             exchangeNumber: 10,
         },
     ];
+
+    const [pagemove, setpagemove] = useState(false);
     const [outputType, setOutputType] = useState("pageNumber");
     const [testDatas, setTestDatas] = useState(initialTestDatas);
     const handleSortByExchangeNumber = () => {
         setOutputType("exchangeNumber");
         testDatas.sort((a, b) => b.exchangeNumber - a.exchangeNumber);
-        console.log(testDatas);
     };
     const handleSortByWordNumber = () => {
         setOutputType("wordNumber");
         testDatas.sort((a, b) => b.wordNumber - a.wordNumber);
-        console.log(testDatas);
     };
     const handleSortByPageNumber = () => {
         setOutputType("pageNumber");
         testDatas.sort((a, b) => b.pageNumber - a.pageNumber);
-        console.log(testDatas);
     };
+    const query = router.query;
+    let pageHistory = "";
+    useEffect(() => {
+        console.log(query);
+        pageHistory = String(query.ranking);
+        router.query = {
+            lookDiary: "false",
+            makeDiary: "false",
+            lookMyDiary: "false",
+            status: "false",
+            ranking: "true",
+        };
+    }, [query]);
+
     return (
-        <div className="font-fancy">
-            <Header></Header>
-            <div className="flex flex-col min-h-screen">
-                <div className=" flex flex-row  text-black  justify-center items-center">
-                    <button
-                        className={
-                            "w-1/5 h-12 m-4 rounded-xl border-2 " +
-                            (outputType == "pageNumber"
-                                ? "bg-green-200"
-                                : "bg-yellow-200")
-                        }
-                        onClick={handleSortByPageNumber}
-                    >
-                        ページ数
-                    </button>
-                    <button
-                        className={
-                            "w-1/5 h-12 m-4 rounded-xl border-2 " +
-                            (outputType == "wordNumber"
-                                ? "bg-green-200"
-                                : "bg-yellow-200")
-                        }
-                        onClick={handleSortByWordNumber}
-                    >
-                        文字数
-                    </button>
-                    <button
-                        className={
-                            "w-1/5 h-12 m-4 rounded-xl border-2 " +
-                            (outputType == "exchangeNumber"
-                                ? "bg-green-200"
-                                : "bg-yellow-200")
-                        }
-                        onClick={handleSortByExchangeNumber}
-                    >
-                        交換数
-                    </button>
-                </div>
+        <motion.div
+            initial={{
+                translateX: -10000,
+            }}
+            animate={{
+                translateX: 0,
+            }}
+            exit={{
+                translateX:
+                    Object.values(router.query)[0] == "" ? -10000 : 10000,
+            }}
+        >
+            <div className="font-fancy ">
+                <Header></Header>
+
                 <div>
-                    {testDatas.map((data, index) => (
-                        <RankingElement
-                            key={index}
-                            username={data.username}
-                            pageNumber={data.pageNumber}
-                            wordNumber={data.wordNumber}
-                            exchangeNumber={data.exchangeNumber}
-                            outputType={outputType}
-                            rank={index + 1}
-                        ></RankingElement>
-                    ))}
+                    <div className=" flex flex-col right-72  top-32  w-screen fixed text-black  justify-center items-center">
+                        <button onClick={() => setpagemove(true)}>test</button>
+                        <button onClick={() => setpagemove(false)}>test</button>
+                        <button
+                            className={
+                                "w-1/5 h-12 m-4 rounded-xl border-2 " +
+                                (outputType == "pageNumber"
+                                    ? "bg-green-200"
+                                    : "bg-yellow-200")
+                            }
+                            onClick={handleSortByPageNumber}
+                        >
+                            ページ数
+                        </button>
+                        <button
+                            className={
+                                "w-1/5 h-12 m-4 rounded-xl border-2 " +
+                                (outputType == "wordNumber"
+                                    ? "bg-green-200"
+                                    : "bg-yellow-200")
+                            }
+                            onClick={handleSortByWordNumber}
+                        >
+                            文字数
+                        </button>
+                        <button
+                            className={
+                                "w-1/5 h-12 m-4 rounded-xl border-2 " +
+                                (outputType == "exchangeNumber"
+                                    ? "bg-green-200"
+                                    : "bg-yellow-200")
+                            }
+                            onClick={handleSortByExchangeNumber}
+                        >
+                            交換数
+                        </button>
+                    </div>
+                    <div className="flex flex-col min-h-screen">
+                        <div className="mt-16">
+                            {testDatas.map((data, index) => (
+                                <RankingElement
+                                    key={index}
+                                    username={data.username}
+                                    pageNumber={data.pageNumber}
+                                    wordNumber={data.wordNumber}
+                                    exchangeNumber={data.exchangeNumber}
+                                    outputType={outputType}
+                                    rank={index + 1}
+                                ></RankingElement>
+                            ))}
+                        </div>
+                    </div>
                 </div>
+                <Footer></Footer>
             </div>
-            <Footer></Footer>
-        </div>
+        </motion.div>
     );
 }
