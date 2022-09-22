@@ -76,18 +76,18 @@ export default function SignUp() {
             <div className="text-3xl text-center font-semibold mt-4">
                 サインアップ
             </div>
-            <div className="border-2 border-amber-200 bg-amber-200 rounded m-12 mt-6">
+            <div className="border-4 border-amber-200 bg-amber-200 rounded mx-12 mt-8">
                 <form onSubmit={signUp}>
                     <div className="flex flex-col">
-                        <div className="text-sm mx-4 mt-4">ユーザー名</div>
+                        <div className="text-sm mx-4 mt-2">ユーザー名</div>
                         <input
                             name="username"
                             onChange={handleChange}
-                            className="rounded w-64 mx-4 mb-1 p-1"
+                            className="rounded bg-white w-64 mx-4 mb-2 p-0.5"
                             placeholder="user"
                         ></input>
                         {formErrors.username && (
-                            <div className="text-xs text-red-500 mx-4">
+                            <div className="text-xs text-red-500 mx-4 mb-2">
                                 ユーザーネームが入力されていません
                             </div>
                         )}
@@ -96,11 +96,11 @@ export default function SignUp() {
                         <input
                             name="mailAddress"
                             onChange={handleChange}
-                            className="rounded w-64 mx-4 mb-1 p-1"
+                            className="rounded bg-white w-64 mx-4 mb-2 p-0.5"
                             placeholder="example@example.com"
                         ></input>
                         {formErrors.mailAddress && (
-                            <div className="text-xs text-red-500 mx-4">
+                            <div className="text-xs text-red-500 mx-4 mb-2">
                                 無効なメールアドレスです
                             </div>
                         )}
@@ -110,11 +110,11 @@ export default function SignUp() {
                             name="password"
                             type="password"
                             onChange={handleChange}
-                            className="rounded w-64 mx-4 mb-1 p-1"
+                            className="rounded bg-white w-64 mx-4 mb-2 p-0.5"
                             placeholder="password"
                         ></input>
                         {formErrors.password && (
-                            <div className="text-xs text-red-500 mx-4">
+                            <div className="text-xs text-red-500 mx-4 mb-2">
                                 パスワードは半角英小文字大文字数字をそれぞれ1種類以上含む8文字以上100文字以下で作成してください
                             </div>
                         )}
@@ -124,11 +124,11 @@ export default function SignUp() {
                             name="confirmPassword"
                             type="password"
                             onChange={handleChange}
-                            className="rounded w-64 mx-4 mb-1 p-1"
+                            className="rounded bg-white w-64 mx-4 mb-2 p-0.5"
                             placeholder="password"
                         ></input>
                         {formErrors.confirmPassword && (
-                            <div className="text-xs text-red-500 mx-4 mb-2">
+                            <div className="text-xs text-red-500 mx-4 mb-6">
                                 パスワードが一致しません
                             </div>
                         )}

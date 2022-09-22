@@ -13,8 +13,10 @@ export default function MakeDiary() {
     const [textLength, setTextLength] = useState<number>(0);
     const router = useRouter();
     console.log(router.query["path"]);
+    // const box = useRef(0);
 
     const textMaxLength = 140;
+
     const handleDiaryTextForm = (event: any) => {
         setDiaryText(event.target.value);
         setTextLength(event.target.value.length);

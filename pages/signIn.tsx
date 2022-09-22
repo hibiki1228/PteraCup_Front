@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
+import Footer from "./components/Footer";
+import Header from "./components/header";
 
 export default function SignIn() {
     type loginElement = {
@@ -45,6 +47,7 @@ export default function SignIn() {
     };
     return (
         <div>
+            <Header></Header>
             <div className="text-3xl font-semibold text-center mt-4">
                 サインイン
             </div>
@@ -55,7 +58,7 @@ export default function SignIn() {
                         <input
                             name="mailAddress"
                             onChange={handleChange}
-                            className="rounded w-64 mb-2 mx-4 p-0.5"
+                            className="rounded bg-white w-64 mb-2 mx-4 p-0.5"
                             placeholder="example@example.com"
                         ></input>
                         {errorFormData.mailAddress && (
@@ -68,7 +71,7 @@ export default function SignIn() {
                             name="password"
                             type="password"
                             onChange={handleChange}
-                            className="rounded w-64 mb-2 mx-4 p-0.5"
+                            className="rounded bg-white w-64 mb-2 mx-4 p-0.5"
                             placeholder="password"
                         ></input>
                         {errorFormData.password && (
@@ -76,17 +79,19 @@ export default function SignIn() {
                                 パスワードは半角英小文字大文字数字をそれぞれ1種類以上含む8文字以上100文字以下で入力してください
                             </div>
                         )}
-                        <div className=" grid-cols-3 flex flex-row-reverse">
-                            <button
-                                type="submit"
-                                className=" rounded border-2 border-red-300 bg-red-300 hover:border-red-400 hover:bg-red-400 text-center text-white font-semibold my-4 mr-4 p-1"
-                            >
-                                サインイン
-                            </button>
-                        </div>
+                        <button type="submit"></button>
+                    </div>
+                    <div className="grid-cols-3 flex flex-row-reverse">
+                        <button
+                            type="submit"
+                            className="rounded border-2 border-red-300 bg-red-300 hover:border-red-400 hover:bg-red-400 text-white font-semibold p-1 mx-auto my-4"
+                        >
+                            サインイン
+                        </button>
                     </div>
                 </form>
             </div>
+            <Footer></Footer>
         </div>
     );
 }
