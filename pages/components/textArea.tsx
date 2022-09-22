@@ -24,7 +24,7 @@ export default function TextArea(props: propsType) {
                             onChange={props.handleDiaryTextForm}
                         ></textarea>
                     </div>
-                    <div className="absolute grid top-72 ml-16 z-0 grid-rows-7">
+                    <div className="absolute grid top-79 ml-16 z-0 grid-rows-7">
                         <div className="w-64 border-b-2 h-[23px] border-dotted"></div>
                         <div className="w-64 border-b-2 h-[23px] border-dotted"></div>
                         <div className="w-64 border-b-2 h-[23px] border-dotted"></div>

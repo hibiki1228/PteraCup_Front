@@ -58,7 +58,7 @@ export default function SignIn() {
                         <input
                             name="mailAddress"
                             onChange={handleChange}
-                            className="rounded bg-white w-64 mb-2 mx-4 p-0.5"
+                            className="rounded text-black bg-white w-64 mb-2 mx-4 p-0.5"
                             placeholder="example@example.com"
                         ></input>
                         {errorFormData.mailAddress && (
@@ -71,7 +71,7 @@ export default function SignIn() {
                             name="password"
                             type="password"
                             onChange={handleChange}
-                            className="rounded bg-white w-64 mb-2 mx-4 p-0.5"
+                            className="rounded bg-white text-black w-64 mb-2 mx-4 p-0.5"
                             placeholder="password"
                         ></input>
                         {errorFormData.password && (
