@@ -8,11 +8,11 @@ export default function Status() {
     console.log(router.query["path"]);
 
     const user = {
-        name: "test",
-        date: "20XX/XX/XX",
-        page: "test",
-        word: "test",
-        exchange: "test",
+        name: "一般通過オタク",
+        date: "2015/01/01",
+        page: "3",
+        word: "255",
+        exchange: "3",
     };
     const query = router.query;
     // useEffect(() => {

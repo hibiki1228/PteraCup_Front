@@ -11,34 +11,34 @@ export default function Ranking() {
 
     const initialTestDatas = [
         {
-            username: "test",
+            username: "john",
             pageNumber: 23,
-            wordNumber: 200,
+            wordNumber: 202,
             exchangeNumber: 100,
         },
         {
-            username: "test",
+            username: "ひろし",
             pageNumber: 34,
-            wordNumber: 300,
-            exchangeNumber: 30,
+            wordNumber: 298,
+            exchangeNumber: 31,
         },
         {
-            username: "test",
+            username: "奇才",
             pageNumber: 192,
-            wordNumber: 100,
-            exchangeNumber: 50,
+            wordNumber: 102,
+            exchangeNumber: 54,
         },
         {
-            username: "test",
+            username: "A",
             pageNumber: 12,
-            wordNumber: 500,
+            wordNumber: 512,
             exchangeNumber: 20,
         },
         {
-            username: "test",
-            pageNumber: 100,
-            wordNumber: 1000,
-            exchangeNumber: 10,
+            username: "赤鬼",
+            pageNumber: 103,
+            wordNumber: 1003,
+            exchangeNumber: 13,
         },
     ];
 

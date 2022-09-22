@@ -9,23 +9,23 @@ export default function LookDiary() {
     // router.query = { path: "/lookDiary" };
     const testDatas = [
         {
-            author: "John",
-            title: "title",
-            date: "2014-01-01",
-            diaryText: "this is a test description",
+            author: "山田",
+            title: "ふるさと",
+            date: "2015-01-01",
+            diaryText: "元旦から出張だったが、その行き先が偶然俺のふるさとだった。空き時間ができたので小学校の近くを歩いてみた。子供の頃にはなかった〇ーソンが出来てた。懐かしい気持ちになれてたまにはこういうのもいいなって思ってたけど、俺セ〇ン派だしまたしばらく帰省しないかな。",
         },
         {
             author: "Ben",
-            title: "title",
-            date: "2016-03-01",
-            diaryText: "this is a test description",
+            title: "I'm sleepy",
+            date: "2020-04-09",
+            diaryText: "For some reason I was sleepy all day today. I had no particular plans, so I took a nap and slept for 10 hours. OMG:'-(",
         },
         {
-            author: "Mikel",
-            title: "title",
-            date: "2014-01-09",
+            author: "でででのおじさん",
+            title: "ワンピース",
+            date: "2022-09-09",
             diaryText:
-                "this is a test descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
+                "今話題のワンピースの映画を見に行った。あのREDってやつ。映画館で映画を見るのはなんだかんだ3年ぶりだったが、めちゃくちゃ泣いた。ほんとに全人類見た方がいい。この日記が届いた人はだまされたと思って見にいってくれ。",
         },
     ];
     // const query = router.query;
