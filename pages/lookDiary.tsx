@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
+import { parseCookies } from "nookies";
+import { useEffect } from "react";
 import Diary from "./components/diary";
 import Footer from "./components/Footer";
 import Header from "./components/header";
@@ -7,7 +9,7 @@ import Header from "./components/header";
 export default function LookDiary() {
     const router = useRouter();
     // router.query = { path: "/lookDiary" };
-    const testDatas = [
+    let testDatas = [
         {
             author: "John",
             title: "title",
@@ -28,6 +30,17 @@ export default function LookDiary() {
                 "this is a test descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
         },
     ];
+
+    useEffect(() => {
+        const cookie = parseCookies();
+        console.log(cookie);
+        testDatas.push({
+            author: cookie.username,
+            title: "title",
+            date: "2022-9-20",
+            diaryText: cookie.diaryText,
+        });
+    }, []);
     // const query = router.query;
     let pageHistory = "";
     // useEffect(() => {
@@ -61,7 +74,7 @@ export default function LookDiary() {
                 <div className="flex flex-col min-h-screen">
                     <div className="m-12 mt-16 flex-grow">
                         {testDatas.map((testData, index) => (
-                            <div key={index} className="bg-amber-50 rounded-xl">
+                            <div key={index} className="bg-black rounded-xl">
                                 <Diary
                                     author={testData.author}
                                     title={testData.title}

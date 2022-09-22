@@ -22,33 +22,42 @@ export default function Home() {
                 <div className="flex flex-col min-h-screen">
                     <div className="flex-grow">
                         <div className="text-5xl font-semibold w-64 mx-auto mt-24">
-                            <div className="text-center mb-6">welcome to</div>
-                            <Image
-                                alt="flowerflame"
-                                src="/images/flowerflame.png"
-                                layout="fill"
-                                objectFit="cover"
-                            ></Image>
+                            <div className="text-center mb-6 z-0">
+                                welcome to
+                            </div>
+                            <div className=" flex justify-center items-center -mt-48 -ml-32 -z-1 absolute">
+                                <Image
+                                    alt="flowerflame"
+                                    src="/images/flowerflame.png"
+                                    width={500}
+                                    height={400}
+                                    // layout="fill"
+                                    // objectFit="cover"
+                                ></Image>
+                            </div>
                             <div className="w-1/2 mx-auto text-8xl">
                                 <div className="text-4xl mb-1">
-                                    <span className="text-red-500">R</span><small>andom</small>
+                                    <span className="text-red-500">R</span>
+                                    <small>andom</small>
                                 </div>
                                 <div className="text-4xl ml-3 mb-1">
-                                <span className="text-red-500">E</span><small>xchange</small>
+                                    <span className="text-red-500">E</span>
+                                    <small>xchange</small>
                                 </div>
                                 <div className="text-4xl ml-8 mb-12">
-                                <span className="text-red-500">D</span><small>iary</small>
+                                    <span className="text-red-500">D</span>
+                                    <small>iary</small>
                                 </div>
                             </div>
                         </div>
-                        <div className="flex w-screen items-center justify-center mt-24">
+                        <div className="flex w-screen items-center justify-center mt-8">
                             <Link href="/signIn">
-                                <div className="mx-10 my-12 px-4 py-2 rounded-xl text-center  hover:border-double border-2 border-yellow-200 hover:bg-cyan-300 bg-cyan-50">
+                                <div className="mx-10 my-12 px-4 py-2 rounded-xl text-center text-red-300  hover:border-double border-2 border-yellow-200 hover:bg-cyan-300 bg-cyan-50">
                                     サインイン
                                 </div>
                             </Link>
                             <Link href="/signUp">
-                                <div className="mx-10 my-12 px-3 py-2 rounded-xl text-center  hover:border-double border-2 border-yellow-200 hover:bg-cyan-300 bg-cyan-50">
+                                <div className="mx-10 my-12 px-3 py-2 rounded-xl text-center  text-red-300 hover:border-double border-2 border-yellow-200 hover:bg-cyan-300 bg-cyan-50">
                                     サインアップ
                                 </div>
                             </Link>

@@ -32,7 +32,7 @@ export default function Footer() {
                             >
                                 <a
                                     className={
-                                        " border-2 border-red-300 bg-amber-200 hover:bg-red-200 rounded-full font-medium text-[4px] items-center sm:duration-300 duration-300 justify-center text-center p-1 flex sm:p-4 h-12 mx-auto sm:text-lg container mx-auto  " +
+                                        " border-2 border-red-300 bg-amber-200 hover:bg-red-200 rounded-full font-medium text-[4px] w-2/3 items-center sm:duration-300 duration-300 justify-center text-center p-1 flex sm:p-4 h-12 mx-auto sm:text-lg container mx-auto  " +
                                         (router.pathname == "/ranking"
                                             ? "bg-red-300 text-cyan-300"
                                             : "bg-amber-200")
@@ -50,7 +50,7 @@ export default function Footer() {
                             >
                                 <a
                                     className={
-                                        " border-2 border-red-300 bg-amber-200 hover:bg-red-200 rounded-full font-medium text-[4px] items-center sm:duration-300 duration-300 justify-center text-center p-1 flex sm:p-4 h-12 mx-auto sm:text-lg container mx-auto  " +
+                                        " border-2 border-red-300 bg-amber-200 hover:bg-red-200 rounded-full font-medium text-[4px] w-2/3 items-center sm:duration-300 duration-300 justify-center text-center p-1 flex sm:p-4 h-12 mx-auto sm:text-lg container mx-auto  " +
                                         (router.pathname == "/lookDiary"
                                             ? "bg-red-300 text-cyan-300"
                                             : "bg-amber-200")
@@ -69,7 +69,7 @@ export default function Footer() {
                             >
                                 <a
                                     className={
-                                        " border-2 border-red-300 bg-amber-200 hover:bg-red-200 rounded-full font-medium text-[4px] items-center sm:duration-300 duration-300 justify-center text-center p-1 flex sm:p-4 h-12 mx-auto sm:text-lg container mx-auto  " +
+                                        " border-2 border-red-300 bg-amber-200 hover:bg-red-200 rounded-full font-medium text-[4px] w-2/3 items-center sm:duration-300 duration-300 justify-center text-center p-1 flex sm:p-4 h-12 mx-auto sm:text-lg container mx-auto  " +
                                         (router.pathname == "/status"
                                             ? "bg-red-300 text-cyan-300"
                                             : "bg-amber-200")
@@ -87,7 +87,7 @@ export default function Footer() {
                             >
                                 <a
                                     className={
-                                        " border-2 border-red-300 bg-amber-200 hover:bg-red-200 rounded-full font-medium text-[4px] items-center sm:duration-300 duration-300 justify-center text-center p-1 flex sm:p-4 h-12 mx-auto sm:text-lg container mx-auto  " +
+                                        " border-2 border-red-300 bg-amber-200 hover:bg-red-200 rounded-full font-medium text-[4px] w-2/3 items-center sm:duration-300 duration-300 justify-center text-center p-1 flex sm:p-4 h-12 mx-auto sm:text-lg container mx-auto  " +
                                         (router.pathname == "/lookMyDiary"
                                             ? "bg-red-300 text-cyan-300"
                                             : "bg-amber-200")
