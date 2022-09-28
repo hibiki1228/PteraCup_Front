@@ -11,7 +11,7 @@ const initialErrorState = {
 };
 export default function SignUpCheck() {
     const router = useRouter();
-    const url = "";
+    const url = "http://localhost:8000";
     type signUpElement = {
         username: string;
         mailAddress: string;
@@ -28,6 +28,10 @@ export default function SignUpCheck() {
         successStatus: boolean;
         errorText: string;
     };
+    const initialSignUpErrorState={
+        successStatus:false,
+        errorText:""
+    }
     const [formData, setFormData] = useState<signUpElement>({
         username: "",
         mailAddress: "",
@@ -44,7 +48,8 @@ export default function SignUpCheck() {
         console.log(formData);
     };
     const [errorSignUpForm, setErrorSignUpForm] =
-        useState<errorSignUpElement>();
+        useState<errorSignUpElement>(initialErrorState);
+    const [successSignUpStatus, setSuccessSignUp] = useState<successSignUp>(initialSignUpErrorState);
     const handleSignUpError = () => {
         let formError = Object.assign({}, initialErrorState);
 
@@ -58,29 +63,31 @@ export default function SignUpCheck() {
         }
         setErrorSignUpForm(formError);
     };
-    const [successSignUpStatus, setSuccessSignUp] = useState<successSignUp>();
-    const signUp = () => {
-        axios
-            .post(url + "/login", {
-                email: formData.mailAddress,
-                password: formData.password,
+    const signUp = async () => {
+        console.log(typeof(formData.mailAddress),typeof(formData.username),typeof(formData.password),)
+        const response = await axios
+            .post('http://localhost:8000/signup/', {
+                user_mail_address : formData.mailAddress,
+                user_name : formData.username,
+                user_password : formData.password,
             })
-            .then((res) => {
-                console.log(res.data);
-                setCookie(null, "accessToken", res.data.cookies);
-                setSuccessSignUp({
-                    successStatus: true,
-                    errorText: "success!",
-                });
-            })
-            .catch((error) => {
-                console.log(error);
-                setSuccessSignUp({
-                    successStatus: false,
-                    errorText: error,
-                });
-                handleSignUpError();
-            });
+            console.log(response);
+            // .then((res) => {
+            //     console.log(res.data);
+            //     setCookie(null, "accessToken", res.data.cookies);
+            //     setSuccessSignUp({
+            //         successStatus: true,
+            //         errorText: "success!",
+            //     });
+            // })
+            // .catch((error) => {
+            //     console.log(error);
+            //     setSuccessSignUp({
+            //         successStatus: false,
+            //         errorText: error,
+            //     });
+            //     handleSignUpError();
+            // });
     };
     const signUpCheck = (event) => {
         event.preventDefault();
@@ -110,7 +117,7 @@ export default function SignUpCheck() {
             !formError.mailAddress
         ) {
             signUp();
-            router.push("/makeDiary");
+            // router.push("/makeDiary");
         }
         setFormErrors(formError);
     };

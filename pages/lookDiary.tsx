@@ -35,10 +35,10 @@ export default function LookDiary() {
         user_id: number;
     };
     type diaryType = {
-        author: string;
+        id:number;
+        discription:string;
         title: string;
-        date: string;
-        diaryText: string;
+        date: Date;
     };
     const testDatas = [
         {
@@ -62,21 +62,21 @@ export default function LookDiary() {
         },
     ];
     const cookies = parseCookies();
-    const url = "https://0847-126-213-101-95.jp.ngrok.io";
-    const [othersDiaries, setOthersDiary] = useState<diaryType[]>();
-    const getOthersDiaries = () => {
-        axios
-            .get(url + "/diary/2", {
-                headers: requestHeader,
-            })
-            .then((res: AxiosResponse<responseData[]>) => {
-                const { data, status } = res;
-                console.log(res.data);
-                // setOthersDiary(res.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+    const url = "http://localhost:8000";
+    const [othersDiaries, setOthersDiary] = useState<diaryType[]>([]);
+    const getOthersDiaries = async () => {
+        const response = await axios
+            .get(url + "/get_my_diary", {
+                params: {
+                  user_id:1
+                }
+              })
+        // const { data, status } = await res;
+        console.log(response.data[0]);
+        setOthersDiary(response.data);
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
     };
     useEffect(() => {
         getOthersDiaries();
@@ -86,16 +86,21 @@ export default function LookDiary() {
             <Header></Header>
             <div className="flex flex-col min-h-screen">
                 <div className="m-8 mt-24 flex-grow">
-                    {/* {othersDiaries.map((testData, index) => (
-                        <div key={index}>
-                            <Diary
-                                author={testData.author}
-                                title={testData.title}
-                                date={testData.date}
-                                diaryText={testData.diaryText}
-                            ></Diary>
-                        </div>
-                    ))} */}
+                    {othersDiaries.map((testData, index) => (
+                       <div>
+                            <div>
+                                {String(testData.date)}
+                            </div>
+                            <div>
+                        {testData.title}
+
+                            </div>
+                            <div>
+
+                        {testData.discription}
+                            </div>
+                       </div>
+                    ))}
                 </div>
             </div>
             <Footer></Footer>

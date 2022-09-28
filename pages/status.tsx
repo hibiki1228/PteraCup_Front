@@ -3,7 +3,7 @@ import { parseCookies } from "nookies";
 import { useEffect, useState } from "react";
 
 export default function Status() {
-    const url = "";
+    const url = "http://localhost:8000";
     type userStatusType = {
         username: string;
         startDate: string;
@@ -20,18 +20,13 @@ export default function Status() {
     // };
     const [userStatus, setUserStatus] = useState<userStatusType>();
     const cookies = parseCookies();
-    const getUserStatus = () => {
-        axios
-            .post(url + "", {
-                accessToken: cookies.accessToken,
+    const getUserStatus = async() => {
+        const response = await axios
+            .post(url + "/status", {
+                user_id:1
             })
-            .then((res) => {
-                console.log(res.data);
-                setUserStatus(res.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        console.log(response.data);
+        setUserStatus(response.data);
     };
     useEffect(() => {
         getUserStatus();
